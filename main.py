@@ -1,5 +1,7 @@
+import random
 from product import Product
 from product_manager import ProductManager
+from cart import Cart
 
 manager = ProductManager()
 
@@ -12,4 +14,12 @@ manager.add_product(p1)
 manager.add_product(p2)
 manager.add_product(p3)
 
-# Obrisani prikazi proizvoda i ukupne vrijednosti inventara
+cart = Cart()
+
+# Odabir 3 slučajna proizvoda iz liste dostupnih proizvoda
+selected_products = random.sample(manager.products, 2)
+for p in selected_products:
+    cart.add_to_cart(p)
+
+# Prikaz sadržaja i ukupne vrijednosti korpe
+cart.display_cart()
