@@ -18,3 +18,10 @@ class ProductManager:
         print(f"\nUkupna vrijednost inventara: {total} KM")
         return total
     
+    def remove_product_by_name(self, name: str):
+        initial_count = len(self.products)
+        self.products = [p for p in self.products if p.name != name]
+        if len(self.products) < initial_count:
+            print(f"Proizvod '{name}' je uspješno uklonjen.")
+        else:
+            print(f"Proizvod '{name}' nije pronađen.")
